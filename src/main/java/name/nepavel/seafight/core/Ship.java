@@ -9,7 +9,7 @@ public class Ship {
 
     public Ship(HashSet<Cell> cells) {
         this.cells = cells;
-        this.damagedCells = new HashSet<>(cells.size());
+        this.damagedCells = new HashSet<>();
     }
 
     public boolean isOn(Cell cell) {

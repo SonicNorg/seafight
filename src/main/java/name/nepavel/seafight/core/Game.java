@@ -17,6 +17,7 @@ public class Game {
         GameField fieldUnderAttack = turn ? player1.getField() : player2.getField();
         HitResult result = fieldUnderAttack.attack(new Cell(x, y));
         if (result == HitResult.KILLED && fieldUnderAttack.allDead()) {
+            inProgress = false;
             return HitResult.WIN;
         }
         turn = !turn;
