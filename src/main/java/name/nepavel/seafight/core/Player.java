@@ -15,4 +15,8 @@ public class Player {
     public GameField getField() {
         return field;
     }
+
+    public void setField(GameField field) {
+        this.field = field;
+    }
 }
