@@ -11,11 +11,16 @@ public class Game {
     }
 
     public HitResult move(int x, int y) {
-        if (turn) {
-            return player1.getField().attack(x, y);
-        } else {
-            return player2.getField().attack(x, y);
+        if (!inProgress) {
+            return null;
         }
+        GameField fieldUnderAttack = turn ? player1.getField() : player2.getField();
+        HitResult result = fieldUnderAttack.attack(new Cell(x, y));
+        if (result == HitResult.KILLED && fieldUnderAttack.allDead()) {
+            return HitResult.WIN;
+        }
+        turn = !turn;
+        return result;
     }
 
     public void reset() {

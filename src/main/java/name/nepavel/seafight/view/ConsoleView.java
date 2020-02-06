@@ -1,6 +1,6 @@
 package name.nepavel.seafight.view;
 
-import name.nepavel.seafight.core.Cell;
+import name.nepavel.seafight.core.CellWithShip;
 import name.nepavel.seafight.core.Game;
 import name.nepavel.seafight.core.GameField;
 
@@ -11,11 +11,15 @@ public class ConsoleView {
         this.game = game;
     }
 
-    public char cellView(Cell emptyCell) {
-        if (emptyCell.isShot()) {
-            return '\u2022';
+    public char cellView(CellWithShip cell) {
+        if (cell.getShip() == null) {
+            if (cell.isShot()) {
+                return '\u25fe';
+            } else {
+                return '\u25e6';
+            }
         } else {
-            return '~';
+            return cell.getShip() ? '\u25a3' : '\u25a1';
         }
     }
 

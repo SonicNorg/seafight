@@ -1,5 +1,5 @@
 package name.nepavel.seafight.core;
 
 public enum HitResult {
-    MISS, DAMAGED, KILLED
+    MISS, DAMAGED, KILLED, WIN
 }
